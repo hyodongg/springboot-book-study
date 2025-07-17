@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//En"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.MemberMapper">
+    <select id="selectAll">
+        select * from member
+    </select>
+
+    <select id="selectById">
+        select * from member where id=#{id}
+    </select>
+
+    <select id="selectByEmail">
+        select * from member where email=#{email}
+    </select>
+
+    <select id="selectByNameLike">
+        select * from member where name LIKE #{name}
+    </select>
+
+    <select id="selectAllOrderByAgeAsc">
+        select * from member order by age ASC
+    </select>
+
+    <select id="selectAllOrderBy">
+        select * from member order by ${order} ${dir}
+    </select>
+
+    <select id="selectAllCount">
+        select count(*) from member
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="member.id" keyColumn="id">
+        insert into member(name,email,age) values(#{member.name}, #{member.email},#{member.age})
+    </insert>
+
+    <update id="update">
+        update member set name=#{member.name}, email=#{member.email}, age=#{member.age}
+        where id=#{member.id}
+    </update>
+
+    <delete id="delete">
+        delete from member where id=#{member.id}
+    </delete>
+
+    <delete id="deleteById">
+        delete from member where id=#{id}
+    </delete>
+
+    <delete id="deleteAll">
+        delete from member
+    </delete>
+
+</mapper>
