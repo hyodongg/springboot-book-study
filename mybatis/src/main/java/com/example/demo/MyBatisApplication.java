@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.mapper.MemberMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -9,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class MyBatisApplication implements ApplicationRunner{
-    @Autowired
-    private MemberMapper memberMapper;
+    private final MemberMapper memberMapper;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         var members = memberMapper.selectAll();

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Optional;
 
+// XML기반 SQL매핑
 @Mapper
 public interface MemberMapper {
     List<Member> selectAll();
