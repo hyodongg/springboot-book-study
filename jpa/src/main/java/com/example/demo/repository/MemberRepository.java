@@ -22,7 +22,7 @@ public interface MemberRepository extends JpaRepository<Member,Long> {
     // findByName("%효%") 처럼 쓰기
     List<Member> findByNameLike(String name);
 
-    // JPQL 예시 테이블과 컬럼이름이 아닌 클래스와 프로퍼티 이름으로, 엔티티는 반드시 별칭 사요
+    // JPQL 예시 테이블과 컬럼이름이 아닌 클래스와 프로퍼티 이름으로, 엔티티는 반드시 별칭 사용
     @Query("select m from Member m where m.name = :name")
     List<Member> findMember(@Param("name") String name);
 
