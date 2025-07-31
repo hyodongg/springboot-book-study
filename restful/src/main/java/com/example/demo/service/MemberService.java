@@ -4,6 +4,7 @@ import com.example.demo.dto.MemberRequest;
 import com.example.demo.dto.MemberResponse;
 import com.example.demo.model.Member;
 import com.example.demo.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.demo.exception.NotFoundException;
@@ -81,5 +82,10 @@ public class MemberService {
         Member member=memberRepository.findById(id)
                 .orElseThrow(NotFoundException::new);
         memberRepository.delete(member);
+    }
+
+    @Transactional
+    public List<MemberResponse> createBatch(List<MemberRequest> memberRequests){
+        return memberRequests.stream().map(this::create).toList();
     }
 }
