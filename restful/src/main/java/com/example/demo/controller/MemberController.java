@@ -79,7 +79,7 @@ public class MemberController {
                 .forward(request, response);
     }
 
-    @PostMapping
+    @PostMapping("/batch")
     @ResponseStatus(HttpStatus.CREATED)
     public List<MemberResponse> postBatch(@RequestBody List<MemberRequest> memberRequests){
         return memberService.createBatch(memberRequests);
