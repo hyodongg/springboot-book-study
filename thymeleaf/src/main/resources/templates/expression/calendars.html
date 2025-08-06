@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>달력 유틸리티</title>
+</head>
+<body>
+<p th:text="${#calendars.format(date,'yyyy-MM-dd')}">
+    2022년 12월 25일
+</p>
+
+</body>
+</html>

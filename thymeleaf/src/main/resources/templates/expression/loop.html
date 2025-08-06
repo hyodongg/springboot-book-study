@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 목록</title>
+</head>
+<body>
+<p>회원목록</p>
+<table>
+    <tr th:each="member,iteration : ${members}" <!--iterator사용 -->
+    th:style="${iteration.odd}?'background-color:lightgray;'">
+        <td th:text="${member.name}">윤서준</td>
+        <td th:text="${member.email}">Yoon@naver.com</td>
+        <td th:text="${member.age}">90</td>
+    </tr>
+</table>
+
+</body>
+</html>
