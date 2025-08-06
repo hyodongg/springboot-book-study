@@ -14,8 +14,10 @@ import java.util.List;
 
 @Controller
 public class ExpressionController {
-    private final List<Member> members = List.of(new Member("조효동", "whgyehdjhd@naver.com", 25),
-            new Member("조효창", "gyckd@naver.com", 28));
+    private final List<Member> members = List.of(
+            new Member("조효동", "whgyehdjhd@naver.com", 25),
+            new Member("조효창", "gyckd@naver.com", 28)
+    );
 
     // 자바 객체 사용하기
     @GetMapping("/object")
@@ -57,11 +59,12 @@ public class ExpressionController {
     // 링크 사용하기
     @GetMapping("/link")
     public String getLink(Model model) {
-        model.addAttribute("id",3);
+        model.addAttribute("id",1);
         return "expression/link";
     }
     @GetMapping("/member")
-    public String getMemberByIdParam(@RequestParam(name="id",required = false) Integer id,Model model) {
+    public String getMemberByIdParam(@RequestParam(name="id",required = false) Integer id
+            ,Model model) {
         if (id != null){
             model.addAttribute("member",members.get(id));
         }

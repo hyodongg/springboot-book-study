@@ -6,8 +6,8 @@
 </head>
 <body>
 <p>회원목록</p>
-<table>
-    <tr th:each="member,iteration : ${members}" <!--iterator사용 -->
+<table> <!--iterator사용 -->
+    <tr th:each="member,iteration : ${members}"
     th:style="${iteration.odd}?'background-color:lightgray;'">
         <td th:text="${member.name}">윤서준</td>
         <td th:text="${member.email}">Yoon@naver.com</td>
@@ -17,3 +17,4 @@
 
 </body>
 </html>
+
